@@ -1,0 +1,77 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "funcionabilidadExtra",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": []
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/icons/**",
+          "/assets/images/**"
+        ],
+        "urls": [
+          "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",
+          "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "cache-first10d",
+      "urls": [
+        "http://127.0.0.1:8080/assets/launchagencies.json",
+        "http://127.0.0.1:8080/assets/launchmissions.json",
+        "http://127.0.0.1:8080/assets/launchstatus.json"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 10,
+        "maxAge": "10d"
+      }
+    },
+    {
+      "name": "cache-first1d",
+      "urls": [
+        "http://127.0.0.1:8080/assets/launchlibrary.json"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 2000,
+        "maxAge": "1d"
+      }
+    },
+    {
+      "name": "api-first",
+      "urls": [],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 10,
+        "maxAge": "1d",
+        "timeout": "4s"
+      }
+    }
+  ]
+}

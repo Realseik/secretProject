@@ -1,0 +1,10 @@
+<!-- <select class="select-valores" (change)="seleccionado($event)">
+  <option disabled selected value>
+  <option *ngFor="let valor of valoresCriterio" [value]="valor.id">
+    <span>{{valor.name}}</span>
+  </option>
+</select>
+ -->
+<div class="center">
+  <input type="button" *ngFor="let valor of valoresCriterio" [value]="valor.name" (click)="seleccionado(valor.id)" routerLink="/listaLanzamientos">
+</div>

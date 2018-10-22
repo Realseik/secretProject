@@ -1,0 +1,18 @@
+/* .select-valores {
+    width: 400px;
+    display: inline-block;
+    margin-left: 15px
+}
+ */
+
+input {
+    margin-left: 15px;
+    padding: 5px;
+    min-height: 25px;
+    min-width: 100px;
+}
+
+.center{
+    width: 50%;
+    margin: 0 auto;
+}

@@ -1,0 +1,6 @@
+<h1 *ngIf="lanzamientos?.length > 0">Lanzamientos:</h1>
+<ol>
+  <li *ngFor="let lanzamiento of lanzamientos$ | async" (click)="onLanzamientoSeleccionado(lanzamiento.id)" routerLink="/listaLanzamientos">
+    <span>{{lanzamiento.name}}</span>
+  </li>
+</ol>
