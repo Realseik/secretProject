@@ -12,5 +12,5 @@ import { LanzamientoComponent } from './lanzamiento.component';
     ],
     declarations: [LanzamientoComponent, ContainerLanzamientosComponent]
 })
-export class LanzamientosModule { }
+export class LanzamientoModule { }
 
