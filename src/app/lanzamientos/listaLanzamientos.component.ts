@@ -20,30 +20,27 @@ import { LoadLanzamiento } from '../reducers/lanzamiento/lanzamiento.actions';
 })
 export class ListaLanzamientosComponent implements OnInit {
   public lanzs: any[];
-  public lanzamientos$: Observable<any>;
+  public contadorLanzamientos: number;
 
   @Input()
   public lanzamientos: any[];
   @Output()
   lanzamientoSeleccionado = new EventEmitter<string>();
+  cambiarOrden = new EventEmitter<string>();
 
   constructor(private store: Store<GlobalState>) { }
 
   ngOnInit() {
     this.lanzamientos = [];
-    this.observeLaunches();
   }
 
   onLanzamientoSeleccionado = (lanzamiento: any) => {
-    // this.lanzamientoSeleccionado.emit(lanzamiento);
     this.store.dispatch(new LoadLanzamiento(lanzamiento));
   }
 
-  observeLaunches = () => {
-    this.lanzamientos$ = this.store.select('listaLanzamientos').pipe(
-      map(stateLanzamientos => {
-        return stateLanzamientos.lanzamientos;
-      })
-    );
+
+  Ordenar(tipo) {
+    this.cambiarOrden.emit(tipo);
   }
+
 }

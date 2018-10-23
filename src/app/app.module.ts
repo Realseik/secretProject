@@ -16,7 +16,6 @@ import { LanzamientosEffects } from './reducers/lanzamientos/lanzamientos.effect
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { LanzamientoComponent } from './lanzamiento/lanzamiento.component';
 import { LanzamientoEffects } from './reducers/lanzamiento/lanzamiento.effects';
 import { AppRoutingModule } from './app.routing.module';
 
@@ -26,7 +25,6 @@ import { AppRoutingModule } from './app.routing.module';
     BuscadorComponent,
     ValoresComponent,
     ContainerBuscadorComponent,
-    LanzamientoComponent
   ],
   imports: [
     AppRoutingModule,
@@ -35,7 +33,7 @@ import { AppRoutingModule } from './app.routing.module';
     RouterModule.forRoot([]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([LanzamientosEffects, ValorEffects, LanzamientoEffects]),
+    EffectsModule.forRoot([ValorEffects]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production

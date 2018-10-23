@@ -1,6 +1,17 @@
-<h1 *ngIf="lanzamientos?.length > 0">Lanzamientos:</h1>
+<h1 *ngIf="contadorLanzamientos > 0">Lanzamientos: {{contadorLanzamientos}}</h1>
+<button type="button" (click)="OrdenarASC()">Ordenar fecha ASC</button> 
+<button type="button" (click)="OrdenarDESC()">Ordenar fecha DESC</button> 
+<br>
 <ol>
-  <li *ngFor="let lanzamiento of lanzamientos$ | async" (click)="onLanzamientoSeleccionado(lanzamiento.id)" routerLink="/listaLanzamientos">
-    <span>{{lanzamiento.name}}</span>
+  <li *ngFor="let lanzamiento of lanzamientos; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }"
+    (click)="onLanzamientoSeleccionado(lanzamiento.id)" routerLink="/lanzamiento/{{lanzamiento.id}}">
+  <h3>{{lanzamiento.name}}</h3>
+  <p>{{lanzamiento | json}}</p>
   </li>
 </ol>
+
+<!-- <li>
+  <img src="http://lorempixum.com/100/100/nature/4" >
+  <h3>Headline</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+</li> -->

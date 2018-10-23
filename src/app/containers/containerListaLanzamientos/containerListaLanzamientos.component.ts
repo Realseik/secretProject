@@ -7,6 +7,7 @@ import { GlobalState } from '../../reducers';
 import { LoadValores } from '../../reducers/valor.actions';
 import { ValoresState } from '../../reducers/valor.reducer';
 import { LoadLanzamientos } from '../../reducers/lanzamientos/lanzamientos.actions';
+import { ListaLanzamientosState } from 'src/app/reducers/lanzamientos/lanzamientos.reducer';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -31,9 +32,9 @@ export class ContainerListaLanzamientosComponent implements OnInit {
 
   observeLaunches = () => {
 
-    this.lanzamientos$ = this.store.select('lanzamientos').pipe(
-      map((stateValores: ValoresState) => {
-        return stateValores.valores;
+    this.lanzamientos$ = this.store.select('listaLanzamientos').pipe(
+      map((state: ListaLanzamientosState) => {
+        return state.lanzamientos;
       })
     );
 
