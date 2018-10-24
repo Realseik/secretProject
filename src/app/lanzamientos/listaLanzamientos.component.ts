@@ -16,7 +16,7 @@ import { tipoOrdenacion } from '../reducers/lanzamientos/lanzamientos.actions';
 @Component({
   selector: 'app-lanzamientos',
   templateUrl: './listaLanzamientos.component.html',
-  styleUrls: ['./listaLanzamientos.component.css'],
+  styleUrls: ['./listaLanzamientos.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListaLanzamientosComponent implements OnInit {
@@ -35,11 +35,6 @@ export class ListaLanzamientosComponent implements OnInit {
   ngOnInit() {
     this.lanzamientos = [];
   }
-
-  onLanzamientoSeleccionado = (lanzamiento: any) => {
-    this.store.dispatch(new LoadLanzamiento(lanzamiento));
-  }
-
 
   Ordenar(tipo: string) {
     let tipoOrden: tipoOrdenacion;

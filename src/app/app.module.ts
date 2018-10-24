@@ -33,7 +33,7 @@ import { AppRoutingModule } from './app.routing.module';
     RouterModule.forRoot([]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([ValorEffects]),
+    EffectsModule.forRoot([ValorEffects,LanzamientosEffects]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production

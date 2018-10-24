@@ -1,10 +1,11 @@
 <h1 *ngIf="contadorLanzamientos > 0">Lanzamientos: {{contadorLanzamientos}}</h1>
-<button type="button" (click)="Ordenar('ASC')">Ordenar fecha ASC</button> 
-<button type="button" (click)="Ordenar('DESC')">Ordenar fecha DESC</button> 
+<button class="button"type="button" (click)="Ordenar('ASC')">▲ Ascendente</button> 
+<button class="back" type="button" (click)="Ordenar('DESC')">▼ Descendente</button> 
+
 <br>
 <ol>
   <li *ngFor="let lanzamiento of lanzamientos; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }"
-    (click)="onLanzamientoSeleccionado(lanzamiento.id)" routerLink="/lanzamiento/{{lanzamiento.id}}">
+   routerLink="/lanzamiento/{{lanzamiento.id}}">
   <h3>{{lanzamiento.name}}</h3>
   <p>{{lanzamiento | json}}</p>
   </li>

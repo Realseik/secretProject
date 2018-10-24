@@ -13,7 +13,7 @@ import * as fromLanzamiento from './lanzamiento/lanzamiento.reducer';
 export interface GlobalState {
   valores: fromValor.ValoresState;
   listaLanzamientos: fromListaLanzamientos.ListaLanzamientosState;
-  lanzamiento: fromLanzamiento.State;
+  lanzamiento: fromLanzamiento.LanzamientoState;
   router: any;
 }
 

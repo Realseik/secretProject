@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
       })
     );
 
-    this.store.dispatch(new LoadLanzamientos(valorCriterio));
+    // this.store.dispatch(new LoadLanzamientos(valorCriterio));
 
   }
 

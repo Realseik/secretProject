@@ -9,7 +9,7 @@ export enum LanzamientoActionTypes {
 
 export class LoadLanzamiento implements Action {
   readonly type = LanzamientoActionTypes.LoadLanzamiento;
-  constructor(public readonly payload: any[]) { }
+  constructor(public readonly payload: string) { }
 }
 
 export class SaveLanzamiento implements Action {

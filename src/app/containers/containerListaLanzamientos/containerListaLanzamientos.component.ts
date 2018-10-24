@@ -1,3 +1,4 @@
+import { LanzamientosSaved } from './../../reducers/lanzamientos/lanzamientos.actions';
 
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -19,6 +20,7 @@ import { ListaLanzamientosState } from 'src/app/reducers/lanzamientos/lanzamient
 export class ContainerListaLanzamientosComponent implements OnInit {
   public lanzamientos$: Observable<any>;
   private lanzamientos: any[];
+
   constructor(private store: Store<GlobalState>) { }
 
   ngOnInit() {
@@ -46,7 +48,26 @@ export class ContainerListaLanzamientosComponent implements OnInit {
   }
 
   onCambiarOrden(tipoOrd: tipoOrdenacion) {
-    this.store.dispatch(new OrdenarLanzamientos({ tipo: tipoOrd, lanzamientos: this.lanzamientos }));
+    console.log(this.lanzamientos);
+    if (tipoOrd === tipoOrdenacion.Ascendente) {
+      this.lanzamientos.sort(this.rastreatorASC);
+    } else {
+      this.lanzamientos.sort(this.rastreatorDESC);
+    }
+    console.log(this.lanzamientos);
+    this.store.dispatch(new LanzamientosSaved(this.lanzamientos));
+  }
+
+  rastreatorASC = (inicial, final) => {
+    if (inicial.fecha < final.fecha) { return -1; }
+    if (inicial.fecha > final.fecha) { return 1; }
+    return 0;
+  }
+
+  rastreatorDESC = (inicial, final) => {
+    if (inicial.fecha > final.fecha) { return -1; }
+    if (inicial.fecha < final.fecha) { return 1; }
+    return 0;
   }
 
 }

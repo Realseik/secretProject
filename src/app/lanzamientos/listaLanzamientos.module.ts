@@ -15,7 +15,7 @@ import { reducer } from '../reducers/valor.reducer';
     CommonModule,
     ListaLanzamientosRoutingModule,
     StoreModule.forFeature('lanzamientos', { lanzamientos: reducer }),
-    EffectsModule.forFeature([LanzamientosEffects]),
+    EffectsModule.forFeature([]),
   ],
   declarations: [ListaLanzamientosComponent, ContainerListaLanzamientosComponent]
 })
