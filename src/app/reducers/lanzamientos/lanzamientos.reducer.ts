@@ -3,13 +3,16 @@ import {
   LanzamientosActions
 } from './lanzamientos.actions';
 
+
 export interface ListaLanzamientosState {
   lanzamientos: any[];
+  orden: string;
   message: string;
 }
 
 export const initialState: ListaLanzamientosState = {
   lanzamientos: [],
+  orden: '',
   message: ''
 };
 
@@ -19,6 +22,8 @@ export function reducer(
 ): ListaLanzamientosState {
   switch (action.type) {
     case LanzamientosActionTypes.LoadLanzamientos:
+      return { ...state };
+    case LanzamientosActionTypes.OrdenarLanzamientos:
       return { ...state };
     case LanzamientosActionTypes.LanzamientosSaved:
       state.lanzamientos = action.payload;

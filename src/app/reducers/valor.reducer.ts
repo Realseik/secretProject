@@ -2,11 +2,17 @@ import { ValorActions, ValorActionTypes } from "./valor.actions";
 
 export interface ValoresState {
   valores: any[];
+  lanzamientos: any[];
+  numeroLanzamientos: number;
+  nombreLanzamiento: string;
   message: string;
 }
 
 export const initialState: ValoresState = {
   valores: [],
+  lanzamientos: [],
+  numeroLanzamientos: 0,
+  nombreLanzamiento: '',
   message: ''
 };
 

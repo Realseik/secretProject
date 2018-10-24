@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { GlobalState } from '../../reducers';
 import { LoadValores } from '../../reducers/valor.actions';
 import { ValoresState } from '../../reducers/valor.reducer';
-import { LoadLanzamientos } from '../../reducers/lanzamientos/lanzamientos.actions';
+import { LoadLanzamientos, OrdenarLanzamientos, tipoOrdenacion } from '../../reducers/lanzamientos/lanzamientos.actions';
 import { ListaLanzamientosState } from 'src/app/reducers/lanzamientos/lanzamientos.reducer';
 
 @Component({
@@ -18,7 +18,7 @@ import { ListaLanzamientosState } from 'src/app/reducers/lanzamientos/lanzamient
 })
 export class ContainerListaLanzamientosComponent implements OnInit {
   public lanzamientos$: Observable<any>;
-
+  private lanzamientos: any[];
   constructor(private store: Store<GlobalState>) { }
 
   ngOnInit() {
@@ -34,14 +34,19 @@ export class ContainerListaLanzamientosComponent implements OnInit {
 
     this.lanzamientos$ = this.store.select('listaLanzamientos').pipe(
       map((state: ListaLanzamientosState) => {
+        this.lanzamientos = state.lanzamientos;
         return state.lanzamientos;
       })
     );
 
   }
 
-  onValorSeleccionado(valorCriterio) {
+  onLanzamientoSeleccionado(valorCriterio) {
     this.store.dispatch(new LoadLanzamientos(valorCriterio));
+  }
+
+  onCambiarOrden(tipoOrd: tipoOrdenacion) {
+    this.store.dispatch(new OrdenarLanzamientos({ tipo: tipoOrd, lanzamientos: this.lanzamientos }));
   }
 
 }

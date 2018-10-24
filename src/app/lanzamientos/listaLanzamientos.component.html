@@ -1,6 +1,6 @@
 <h1 *ngIf="contadorLanzamientos > 0">Lanzamientos: {{contadorLanzamientos}}</h1>
-<button type="button" (click)="OrdenarASC()">Ordenar fecha ASC</button> 
-<button type="button" (click)="OrdenarDESC()">Ordenar fecha DESC</button> 
+<button type="button" (click)="Ordenar('ASC')">Ordenar fecha ASC</button> 
+<button type="button" (click)="Ordenar('DESC')">Ordenar fecha DESC</button> 
 <br>
 <ol>
   <li *ngFor="let lanzamiento of lanzamientos; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }"

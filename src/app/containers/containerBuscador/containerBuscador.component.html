@@ -1,19 +1,4 @@
 <app-buscador [valoresCriterio]="valores$ | async" (valorSeleccionado)="onValorSeleccionado($event)">
 </app-buscador>
 
-<!-- <app-buscador 
-    [criterios]="criterios$ | async"
-    [valoresCriterio]="valores$ | async" 
-    (criterioSeleccionado)="onCriterioSeleccionado($event)"
-    (valorSeleccionado)="onValorSeleccionado($event)">
-</app-buscador> -->
-
-<!-- <app-lanzamientos
-    [lanzamientos]="lanzamientos$ | async"
-    (lanzamientoSeleccionado)="onLanzamientoSeleccionado($event)">
-</app-lanzamientos>  -->
-
-<!-- <app-lanzamiento
-    [lanzamiento]="lanzamiento$ | async">
-</app-lanzamiento> -->
 <router-outlet></router-outlet>

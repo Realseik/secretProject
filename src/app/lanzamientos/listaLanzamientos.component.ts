@@ -11,6 +11,7 @@ import { GlobalState } from '../reducers';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LoadLanzamiento } from '../reducers/lanzamiento/lanzamiento.actions';
+import { tipoOrdenacion } from '../reducers/lanzamientos/lanzamientos.actions';
 
 @Component({
   selector: 'app-lanzamientos',
@@ -26,6 +27,7 @@ export class ListaLanzamientosComponent implements OnInit {
   public lanzamientos: any[];
   @Output()
   lanzamientoSeleccionado = new EventEmitter<string>();
+  @Output()
   cambiarOrden = new EventEmitter<string>();
 
   constructor(private store: Store<GlobalState>) { }
@@ -39,8 +41,14 @@ export class ListaLanzamientosComponent implements OnInit {
   }
 
 
-  Ordenar(tipo) {
-    this.cambiarOrden.emit(tipo);
+  Ordenar(tipo: string) {
+    let tipoOrden: tipoOrdenacion;
+    if (tipo === 'ASC') {
+      tipoOrden = tipoOrdenacion.Ascendente;
+    } else {
+      tipoOrden = tipoOrdenacion.Descendiente;
+    }
+    this.cambiarOrden.emit(tipoOrden);
   }
 
 }

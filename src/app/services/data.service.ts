@@ -53,7 +53,17 @@ export class DataService {
             return this.filtrarEstado(launch, Number(valor));
           })
           .map(lanzamiento => {
-            return { name: lanzamiento.name, id: lanzamiento.id };
+            return { name: lanzamiento.name, id: lanzamiento.id, fecha: lanzamiento.isostart, imagen: lanzamiento.rocket.imageURL };
+          })
+      )
+    );
+  }
+  public cargarLanzamientos(): Observable<any> {
+    return this.http.get(URL + '/assets/launchlibrary.json').pipe(
+      map((res: any) =>
+        res.launches
+          .map(lanzamiento => {
+            return { name: lanzamiento.name, id: lanzamiento.id, fecha: lanzamiento.isostart, imagen: lanzamiento.rocket.imageURL };
           })
       )
     );
