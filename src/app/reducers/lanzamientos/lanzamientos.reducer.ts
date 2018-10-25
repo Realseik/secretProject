@@ -23,11 +23,13 @@ export function reducer(
   switch (action.type) {
     case LanzamientosActionTypes.LoadLanzamientos:
       return { ...state };
-    case LanzamientosActionTypes.OrdenarLanzamientos:
-      return { ...state };
     case LanzamientosActionTypes.LanzamientosSaved:
       state.lanzamientos = action.payload;
       return { ...state };
+    case LanzamientosActionTypes.SaveOrden:
+      state.orden = action.payload;
+      return { ...state };
+
     default:
       return state;
   }

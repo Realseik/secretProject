@@ -18,12 +18,9 @@ import { LoadLanzamientos } from './reducers/valor.actions';
 })
 export class AppComponent implements OnInit {
   public version = '4';
-  title = 'aplicaciones-pwa-realseik';
+  public title = 'Proyecto final RealseiK';
 
   private valores$: Observable<any>;
-  private numeroLanzamientosSeleccionados$: Observable<any>;
-  private nombreLanzamiento$: Observable<any>;
-  private lanzamientos$: Observable<any>;
 
   constructor(
     private swUpdate: SwUpdate,
@@ -48,9 +45,10 @@ export class AppComponent implements OnInit {
       });
     }
   }
+
+  // DUDA: Quiza llevar 
   observeLaunches = () => {
     this.valores$ = this.store.select('valores');
-    
   }
 
 }

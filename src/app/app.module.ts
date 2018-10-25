@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { LanzamientoEffects } from './reducers/lanzamiento/lanzamiento.effects';
 import { AppRoutingModule } from './app.routing.module';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AppRoutingModule } from './app.routing.module';
     BuscadorComponent,
     ValoresComponent,
     ContainerBuscadorComponent,
+    HeaderComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -33,7 +35,7 @@ import { AppRoutingModule } from './app.routing.module';
     RouterModule.forRoot([]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([ValorEffects,LanzamientosEffects]),
+    EffectsModule.forRoot([ValorEffects, LanzamientosEffects]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production

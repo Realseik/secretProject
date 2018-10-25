@@ -1,4 +1,4 @@
-import { LanzamientosSaved } from './../../reducers/lanzamientos/lanzamientos.actions';
+import { LanzamientosSaved, SaveOrden } from '../../reducers/lanzamientos/lanzamientos.actions';
 
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,8 +7,8 @@ import { map } from 'rxjs/operators';
 import { GlobalState } from '../../reducers';
 import { LoadValores, LoadNumLanzamientos, LoadNumLanzamientosSeleccionados } from '../../reducers/valor.actions';
 import { ValoresState } from '../../reducers/valor.reducer';
-import { LoadLanzamientos, OrdenarLanzamientos, tipoOrdenacion } from '../../reducers/lanzamientos/lanzamientos.actions';
-import { ListaLanzamientosState } from 'src/app/reducers/lanzamientos/lanzamientos.reducer';
+import { LoadLanzamientos } from '../../reducers/lanzamientos/lanzamientos.actions';
+import { ListaLanzamientosState } from '../../reducers/lanzamientos/lanzamientos.reducer';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -33,7 +33,6 @@ export class ContainerListaLanzamientosComponent implements OnInit {
   }
 
   observeLaunches = () => {
-
     this.lanzamientos$ = this.store.select('listaLanzamientos').pipe(
       map((state: ListaLanzamientosState) => {
         this.lanzamientos = state.lanzamientos;
@@ -48,14 +47,14 @@ export class ContainerListaLanzamientosComponent implements OnInit {
     this.store.dispatch(new LoadLanzamientos(valorCriterio));
   }
 
-  onCambiarOrden(tipoOrd: tipoOrdenacion) {
-    console.log(this.lanzamientos);
-    if (tipoOrd === tipoOrdenacion.Ascendente) {
+  // TODO: Esto se podria optimizar
+  onCambiarOrden(tipoOrd: string) {
+    if (tipoOrd === 'ASC') {
       this.lanzamientos.sort(this.rastreatorASC);
     } else {
       this.lanzamientos.sort(this.rastreatorDESC);
     }
-    console.log(this.lanzamientos);
+    // No considero que haga falta guardar el Orden seleccionado, con los lanzamientos es suficiente para offline
     this.store.dispatch(new LanzamientosSaved(this.lanzamientos));
   }
 
@@ -69,6 +68,6 @@ export class ContainerListaLanzamientosComponent implements OnInit {
     if (inicial.fecha > final.fecha) { return -1; }
     if (inicial.fecha < final.fecha) { return 1; }
     return 0;
-  }
 
+  }
 }

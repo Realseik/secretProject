@@ -13,9 +13,9 @@ export const initialState: LanzamientoState = {
 export function reducer(state = initialState, action: LanzamientoActions): LanzamientoState {
   switch (action.type) {
     case LanzamientoActionTypes.LoadLanzamiento:
-      return { ...state };
+      break;
     case LanzamientoActionTypes.NotSaved:
-      this.message = action.payload;
+      state.message = action.payload;
       break;
     case LanzamientoActionTypes.Saved:
       state.lanzamiento = action.payload;

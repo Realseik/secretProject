@@ -4,10 +4,12 @@ export enum ValorActionTypes {
   LoadValores = '[Valor] Load Valores',
   LoadLanzamientos = '[Valor] Load Lanzamientos',
   LoadNumLanzamientos = '[Valor] Load Numero Lanzamientos',
+  LoadNombreLanzamiento = '[Valor] Load nombre lanzamiento',
   LoadNumLanzamientosSeleccionados = '[Valor] Load Numero Lanzamientos Seleccionados',
   SaveLanzamientos = '[Valor] Save Lanzamientos',
   Saved = '[Valor] Saved',
   NotSaved = '[Valor] Not Saved'
+
 }
 
 export class LoadValores implements Action {
@@ -21,6 +23,11 @@ export class LoadLanzamientos implements Action {
 export class LoadNumLanzamientos implements Action {
   readonly type = ValorActionTypes.LoadNumLanzamientos;
   constructor(public readonly payload: number) { }
+}
+
+export class LoadNombreLanzamiento implements Action {
+  readonly type = ValorActionTypes.LoadNombreLanzamiento;
+  constructor(public readonly payload: string) { }
 }
 
 export class LoadNumLanzamientosSeleccionados implements Action {
@@ -44,5 +51,5 @@ export class NotSaved implements Action {
 }
 
 export type ValorActions = LoadValores |
-  LoadLanzamientos | LoadNumLanzamientos |
+  LoadLanzamientos | LoadNumLanzamientos | LoadNombreLanzamiento |
   LoadNumLanzamientosSeleccionados | SaveLanzamientos | Saved | NotSaved;

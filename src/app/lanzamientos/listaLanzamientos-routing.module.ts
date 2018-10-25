@@ -1,4 +1,4 @@
-import { ContainerListaLanzamientosComponent } from './../containers/containerListaLanzamientos/containerListaLanzamientos.component';
+import { ContainerListaLanzamientosComponent } from '../containers/containerListaLanzamientos/containerListaLanzamientos.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

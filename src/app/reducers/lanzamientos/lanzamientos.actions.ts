@@ -1,9 +1,9 @@
 import { Action } from '@ngrx/store';
 
 export enum LanzamientosActionTypes {
-  OrdenarLanzamientos = '[Lanzamientos] Ordenar Lanzamientos',
   LoadLanzamientos = '[Lanzamientos] Load Lanzamientos',
   LanzamientosSaved = '[Lanzamientos] Lanzamientos Saved',
+  SaveOrden = '[Lanzamientos] Lanzamientos Saved',
 }
 
 export enum tipoOrdenacion {
@@ -16,14 +16,14 @@ export class LoadLanzamientos implements Action {
   constructor(readonly payload: string) { }
 }
 
-export class OrdenarLanzamientos implements Action {
-  readonly type = LanzamientosActionTypes.OrdenarLanzamientos;
-  constructor(readonly payload: {tipo: tipoOrdenacion, lanzamientos: any[]}) { }
-}
-
 export class LanzamientosSaved implements Action {
   readonly type = LanzamientosActionTypes.LanzamientosSaved;
   constructor(readonly payload: any[]) { }
 }
 
-export type LanzamientosActions = LoadLanzamientos | LanzamientosSaved | OrdenarLanzamientos;
+export class SaveOrden implements Action {
+  readonly type = LanzamientosActionTypes.SaveOrden;
+  constructor(readonly payload: any) { }
+}
+
+export type LanzamientosActions = LoadLanzamientos | LanzamientosSaved | SaveOrden;

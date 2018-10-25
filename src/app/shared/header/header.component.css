@@ -1,0 +1,8 @@
+.imgContainer {
+    height: 450px;
+    width: 450px;
+    max-height: 450px;
+    max-width: 450px;
+    background-size:100% auto;
+    background-repeat: no-repeat;
+}

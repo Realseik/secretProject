@@ -53,7 +53,14 @@ export class DataService {
             return this.filtrarEstado(launch, Number(valor));
           })
           .map(lanzamiento => {
-            return { name: lanzamiento.name, id: lanzamiento.id, fecha: lanzamiento.isostart, imagen: lanzamiento.rocket.imageURL };
+            return {
+              name: lanzamiento.name,
+              id: lanzamiento.id,
+              fecha: lanzamiento.isostart,
+              imagen: lanzamiento.rocket.imageURL ? lanzamiento.rocket.imageURL  : undefined,
+              failreason: lanzamiento.failreason,
+              mapURL: lanzamiento.location.pads[0].mapURL
+            };
           })
       )
     );
@@ -63,7 +70,14 @@ export class DataService {
       map((res: any) =>
         res.launches
           .map(lanzamiento => {
-            return { name: lanzamiento.name, id: lanzamiento.id, fecha: lanzamiento.isostart, imagen: lanzamiento.rocket.imageURL };
+            return {
+              name: lanzamiento.name,
+              id: lanzamiento.id,
+              fecha: lanzamiento.isostart,
+              imagen: lanzamiento.rocket.imageURL ? lanzamiento.rocket.imageURL  : undefined,
+              failreason: lanzamiento.failreason,
+              mapURL: lanzamiento.location.pads[0].mapURL
+            };
           })
       )
     );

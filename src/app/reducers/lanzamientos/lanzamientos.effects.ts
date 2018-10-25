@@ -21,16 +21,5 @@ export class LanzamientosEffects {
       )
     );
 
-    @Effect()
-    public ordenar$ = this.actions$
-      .ofType(LanzamientosActionTypes.OrdenarLanzamientos)
-      .pipe(
-        mergeMap((action: LanzamientosActions) =>
-          this.data
-            .leerLanzamientos(action.payload)
-            .pipe(map(criterios => new LanzamientosSaved(criterios)))
-        )
-      );
-
   constructor(private actions$: Actions, private data: DataService) {}
 }

@@ -38,6 +38,9 @@ export function reducer(state = initialState, action: ValorActions): ValoresStat
     case ValorActionTypes.LoadNumLanzamientos:
       state.numeroLanzamientos = action.payload;
       return { ...state };
+    case ValorActionTypes.LoadNombreLanzamiento:
+      state.nombreLanzamiento = action.payload;
+      return { ...state };
     default:
       return state;
   }

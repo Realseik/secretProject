@@ -1,17 +1,12 @@
-import { LoadLanzamiento } from './../../reducers/lanzamiento/lanzamiento.actions';
-
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
-
 import { map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 import { GlobalState } from '../../reducers';
-import { LoadValores } from '../../reducers/valor.actions';
 import { LanzamientoState } from '../../reducers/lanzamiento/lanzamiento.reducer';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
-
-// import { LoadLanzamiento } from '../reducers/lanzamiento/lanzamiento.actions';
-
+import { LoadLanzamiento } from '../../reducers/lanzamiento/lanzamiento.actions';
+import { LoadNombreLanzamiento } from '../../reducers/valor.actions';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -43,6 +38,7 @@ export class ContainerLanzamientosComponent implements OnInit {
 
     this.lanzamiento$ = this.store.select('lanzamiento').pipe(
       map((state: LanzamientoState) => {
+        this.store.dispatch(new LoadNombreLanzamiento(state.lanzamiento.name));
         return state.lanzamiento;
       })
     );

@@ -6,13 +6,9 @@
 <ol>
   <li *ngFor="let lanzamiento of lanzamientos; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }"
    routerLink="/lanzamiento/{{lanzamiento.id}}">
+   <h3>{{lanzamiento.id}}</h3>
   <h3>{{lanzamiento.name}}</h3>
-  <p>{{lanzamiento | json}}</p>
+  <h4 style="color:red" *ngIf="lanzamiento.failreason !== undefined">{{lanzamiento.failreason}}</h4>
+  <h6>Fecha en formato ISO: {{lanzamiento.fecha}}</h6>
   </li>
 </ol>
-
-<!-- <li>
-  <img src="http://lorempixum.com/100/100/nature/4" >
-  <h3>Headline</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
-</li> -->
