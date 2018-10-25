@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { GlobalState } from '../../reducers';
-import { LoadValores } from '../../reducers/valor.actions';
+import { LoadValores, LoadNumLanzamientos, LoadNumLanzamientosSeleccionados } from '../../reducers/valor.actions';
 import { ValoresState } from '../../reducers/valor.reducer';
 import { LoadLanzamientos, OrdenarLanzamientos, tipoOrdenacion } from '../../reducers/lanzamientos/lanzamientos.actions';
 import { ListaLanzamientosState } from 'src/app/reducers/lanzamientos/lanzamientos.reducer';
@@ -37,6 +37,7 @@ export class ContainerListaLanzamientosComponent implements OnInit {
     this.lanzamientos$ = this.store.select('listaLanzamientos').pipe(
       map((state: ListaLanzamientosState) => {
         this.lanzamientos = state.lanzamientos;
+        this.store.dispatch(new LoadNumLanzamientosSeleccionados(this.lanzamientos.length));
         return state.lanzamientos;
       })
     );

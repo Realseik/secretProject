@@ -7,8 +7,8 @@
   </h4>
   <h6>Versión v.{{version}}</h6>
 
-  <h6>Numero de lanzamientos: {{numeroLanzamientos}}</h6>
-  <h6>Lanzamiento seleccionado : {{nombreLanzamiento}}</h6>
+  <h6>Numero de lanzamientos: {{(valores$ | async).numeroLanzamientos}}, Seleccionados: {{(valores$ | async).numeroLanzamientosSeleccionados}}</h6>
+  <h6>Lanzamiento seleccionado : {{(valores$ | async).nombreLanzamiento}}</h6>
 </div>
 
 <app-containerBuscador></app-containerBuscador>

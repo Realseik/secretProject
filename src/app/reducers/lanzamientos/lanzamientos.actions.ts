@@ -13,7 +13,7 @@ export enum tipoOrdenacion {
 
 export class LoadLanzamientos implements Action {
   readonly type = LanzamientosActionTypes.LoadLanzamientos;
-  constructor(readonly payload: any[]) { }
+  constructor(readonly payload: string) { }
 }
 
 export class OrdenarLanzamientos implements Action {

@@ -6,6 +6,9 @@ import { Store } from '@ngrx/store';
 import { GlobalState } from './reducers';
 import { map } from 'rxjs/operators';
 import { ValoresState } from './reducers/valor.reducer';
+import { ListaLanzamientosState } from './reducers/lanzamientos/lanzamientos.reducer';
+import { LoadNumLanzamientos } from './reducers/valor.actions';
+import { LoadLanzamientos } from './reducers/valor.actions';
 
 @Component({
   selector: 'app-root',
@@ -16,16 +19,24 @@ import { ValoresState } from './reducers/valor.reducer';
 export class AppComponent implements OnInit {
   public version = '4';
   title = 'aplicaciones-pwa-realseik';
-  private numeroLanzamientos$: Observable<any>;
-  public numeroLanzamientos: number;
-  private nombreLanzamiento$: Observable<any>;
-  public nombreLanzamiento: string;
 
-  constructor(private swUpdate: SwUpdate, private store: Store<GlobalState>) { }
+  private valores$: Observable<any>;
+  private numeroLanzamientosSeleccionados$: Observable<any>;
+  private nombreLanzamiento$: Observable<any>;
+  private lanzamientos$: Observable<any>;
+
+  constructor(
+    private swUpdate: SwUpdate,
+    private store: Store<GlobalState>) { }
 
   ngOnInit() {
+    this.loadData();
     this.observeForUpdates();
     this.observeLaunches();
+  }
+
+  loadData = () => {
+    this.store.dispatch(new LoadLanzamientos());
   }
 
   observeForUpdates() {
@@ -38,21 +49,8 @@ export class AppComponent implements OnInit {
     }
   }
   observeLaunches = () => {
-
-    this.numeroLanzamientos$ = this.store.select('numeroLanzamientos').pipe(
-      map((state: ValoresState) => {
-        this.numeroLanzamientos = state.numeroLanzamientos;
-      })
-    );
-
-    this.nombreLanzamiento$ = this.store.select('nombreLanzamiento').pipe(
-      map((state: ValoresState) => {
-        this.nombreLanzamiento = state.nombreLanzamiento;
-      })
-    );
-
-    // this.store.dispatch(new LoadLanzamientos(valorCriterio));
-
+    this.valores$ = this.store.select('valores');
+    
   }
 
 }

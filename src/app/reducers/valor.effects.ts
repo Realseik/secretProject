@@ -4,6 +4,7 @@ import { ValorActionTypes, LoadValores, Saved, ValorActions } from './valor.acti
 import { mergeMap, map } from 'rxjs/operators';
 import { DataService } from '../services/data.service';
 import { LoadLanzamientos } from './lanzamientos/lanzamientos.actions';
+import { SaveLanzamientos } from './valor.actions';
 
 
 @Injectable()
@@ -28,7 +29,7 @@ export class ValorEffects {
       mergeMap((action: ValorActions) =>
         this.data
           .cargarLanzamientos()
-          .pipe(map(criterios => new LoadLanzamientos(criterios)))
+          .pipe(map(criterios => new SaveLanzamientos(criterios)))
       )
     );
 
