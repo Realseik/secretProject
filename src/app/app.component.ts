@@ -19,32 +19,11 @@ export class AppComponent implements OnInit {
   private valores$: Observable<any>;
 
   constructor(
-    private swUpdate: SwUpdate,
-    private store: Store<GlobalState>) { }
+  ) { }
 
   ngOnInit() {
-    this.loadData();
-    this.observeForUpdates();
-    this.observeLaunches();
+
   }
 
-  loadData = () => {
-    this.store.dispatch(new LoadLanzamientos());
-  }
-
-  observeForUpdates() {
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate.available.subscribe((event: UpdateAvailableEvent) => {
-        if (confirm('Nueva versión disponible')) {
-          window.location.reload();
-        }
-      });
-    }
-  }
-
-  // TODO: Llevar esto a un componente header
-  observeLaunches = () => {
-    this.valores$ = this.store.select('valores');
-  }
 
 }
