@@ -27,7 +27,7 @@ export class LoadNumLanzamientos implements Action {
 
 export class LoadNombreLanzamiento implements Action {
   readonly type = ValorActionTypes.LoadNombreLanzamiento;
-  constructor(public readonly payload: string) { }
+  constructor(public readonly payload: any) { }
 }
 
 export class LoadNumLanzamientosSeleccionados implements Action {

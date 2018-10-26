@@ -43,7 +43,7 @@ export class ListaLanzamientosComponent implements OnInit {
     } else {
       tipoOrden = tipoOrdenacion.Descendiente;
     }
-    this.cambiarOrden.emit(tipoOrden);
+    this.cambiarOrden.emit(tipo);
   }
 
 }

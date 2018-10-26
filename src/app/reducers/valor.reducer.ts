@@ -6,7 +6,7 @@ export interface ValoresState {
   numeroLanzamientos: number;
   numeroLanzamientosSeleccionados: number;
   nombreLanzamiento: string;
-  message: string;
+  message: any;
 }
 
 export const initialState: ValoresState = {
@@ -23,24 +23,17 @@ export function reducer(state = initialState, action: ValorActions): ValoresStat
     case ValorActionTypes.LoadValores:
       return { ...state };
     case ValorActionTypes.SaveLanzamientos:
-      state.lanzamientos = action.payload;
-      state.numeroLanzamientos = state.lanzamientos.length;
-      return { ...state };
+      return { ...state, numeroLanzamientos: state.lanzamientos.length, lanzamientos: action.payload };
     case ValorActionTypes.Saved:
-      state.valores = action.payload;
-      return { ...state };
+      return { ...state, valores: action.payload };
     case ValorActionTypes.NotSaved:
-      this.message = action.payload;
-      break;
+      return { ...state, message: action.payload };
     case ValorActionTypes.LoadNumLanzamientosSeleccionados:
-      state.numeroLanzamientosSeleccionados = action.payload;
-      return { ...state };
+      return { ...state, numeroLanzamientosSeleccionados: action.payload };
     case ValorActionTypes.LoadNumLanzamientos:
-      state.numeroLanzamientos = action.payload;
-      return { ...state };
+      return { ...state, numeroLanzamientos: action.payload };
     case ValorActionTypes.LoadNombreLanzamiento:
-      state.nombreLanzamiento = action.payload;
-      return { ...state };
+      return { ...state, nombreLanzamiento: action.payload };
     default:
       return state;
   }

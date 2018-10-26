@@ -1,4 +1,6 @@
-<h1>
-  {{lanzamiento.name}}</h1>
-<h2>{{lanzamiento.windowstart}}</h2>
-<div class="imgContainer" [ngStyle]="{'background-image':'url(' + lanzamiento.imagen + ')'}"> </div>
+<div *ngIf="lanzamiento">
+  <h1>
+    {{lanzamiento.name}}</h1>
+  <h2>{{lanzamiento.windowstart}}</h2>
+  <div class="imgContainer" [ngStyle]="{'background-image':'url(' + lanzamiento.imagen + ')'}"> </div>
+</div>

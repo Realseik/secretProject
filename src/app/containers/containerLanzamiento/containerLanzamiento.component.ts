@@ -38,8 +38,10 @@ export class ContainerLanzamientosComponent implements OnInit {
 
     this.lanzamiento$ = this.store.select('lanzamiento').pipe(
       map((state: LanzamientoState) => {
-        this.store.dispatch(new LoadNombreLanzamiento(state.lanzamiento.name));
-        return state.lanzamiento;
+        if (state) {
+         // this.store.dispatch(new LoadNombreLanzamiento(state.lanzamiento.name));
+          return state.lanzamiento;
+        }
       })
     );
 

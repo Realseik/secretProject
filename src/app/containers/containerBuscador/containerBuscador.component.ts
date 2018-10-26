@@ -9,9 +9,6 @@ import { LoadValores } from '../../reducers/valor.actions';
 import { ValoresState } from '../../reducers/valor.reducer';
 import { LoadLanzamientos } from '../../reducers/lanzamientos/lanzamientos.actions';
 
-// import { LoadLanzamiento } from '../reducers/lanzamiento/lanzamiento.actions';
-
-
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'app-containerBuscador',
@@ -20,11 +17,8 @@ import { LoadLanzamientos } from '../../reducers/lanzamientos/lanzamientos.actio
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContainerBuscadorComponent implements OnInit {
-  // public criterios$: Observable<any>;
   public valores$: Observable<any>;
-  // public lanzamientos$: Observable<any>;
   public lanzamiento$: Observable<any>;
-  // public lanzamientos = [];
 
   constructor(private store: Store<GlobalState>) { }
 
@@ -38,37 +32,15 @@ export class ContainerBuscadorComponent implements OnInit {
   }
 
   observeLaunches = () => {
-
     this.valores$ = this.store.select('valores').pipe(
       map((stateValores: ValoresState) => {
         return stateValores.valores;
       })
     );
-
-    // this.lanzamientos$ = this.store.select('lanzamientos').pipe(
-    //   map(stateLanzamientos => {
-    //     return stateLanzamientos.lanzamientos;
-    //   })
-    // );
-
-    // this.lanzamiento$ = this.store.select('lanzamiento').pipe(
-    //   map(stateLanzamientos => {
-    //     return stateLanzamientos.lanzamientos;
-    //   })
-    // );
   }
-
-  // onCriterioSeleccionado(criterio) {
-  //   this.criterio = criterio;
-  //   this.store.dispatch(new LoadValores());
-  // }
 
   onValorSeleccionado(valorCriterio) {
     this.store.dispatch(new LoadLanzamientos(valorCriterio));
   }
-
-  // onLanzamientoSeleccionado(lanzamiento) {
-  //   this.store.dispatch(new LoadLanzamiento(lanzamiento));
-  // }
 
 }

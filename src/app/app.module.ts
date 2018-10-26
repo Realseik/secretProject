@@ -16,7 +16,6 @@ import { LanzamientosEffects } from './reducers/lanzamientos/lanzamientos.effect
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { LanzamientoEffects } from './reducers/lanzamiento/lanzamiento.effects';
 import { AppRoutingModule } from './app.routing.module';
 import { HeaderComponent } from './shared/header/header.component';
 

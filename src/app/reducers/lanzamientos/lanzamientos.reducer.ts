@@ -20,12 +20,20 @@ export function reducer(
   state = initialState,
   action: LanzamientosActions
 ): ListaLanzamientosState {
+  // switch (action.type) {
+ 
+  //   case LanzamientosActionTypes.LanzamientosSaved:
+  //     return { ...state, lanzamientos: action.payload };
+  //   case LanzamientosActionTypes.SaveOrden:
+  //     return { ...state, orden: action.payload };
+  //   default:
+  //     return { ...state };
+  // }
   switch (action.type) {
     case LanzamientosActionTypes.LoadLanzamientos:
       return { ...state };
     case LanzamientosActionTypes.LanzamientosSaved:
-      state.lanzamientos = action.payload;
-      return { ...state };
+    return { ...state, lanzamientos: action.payload };
     case LanzamientosActionTypes.SaveOrden:
       state.orden = action.payload;
       return { ...state };
@@ -33,4 +41,5 @@ export function reducer(
     default:
       return state;
   }
+
 }

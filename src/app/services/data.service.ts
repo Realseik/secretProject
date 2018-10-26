@@ -21,14 +21,6 @@ export class DataService {
 
   public leerValoresCriterio(): Observable<any> {
     return this.getEstados();
-    // switch (name) {
-    //   case 'Estado':
-    //     return this.getEstados();
-    //   case 'Agencia':
-    //     return this.getAgencias();
-    //   case 'Tipo':
-    //     return this.getTipos();
-    // }
   }
 
   public leerLanzamiento(valor): Observable<any> {
@@ -84,19 +76,6 @@ export class DataService {
   }
 
   // ---------   Filtros a aplicar en la lista de lanzamientos
-
-  private filtrarAgencia(lanzamiento: any, valor: number): boolean {
-    if (lanzamiento.lsp) {
-      return lanzamiento.lsp.id === valor;
-    }
-  }
-
-  private filtrarTipoMision(lanzamiento: any, valor: number): boolean {
-    if (lanzamiento.missions.length > 0) {
-      return lanzamiento.missions[0].type === valor;
-    }
-  }
-
   private filtrarEstado(lanzamiento: any, valor: number): boolean {
     return lanzamiento.status === valor;
   }
@@ -106,23 +85,6 @@ export class DataService {
   }
 
   // ---------   GETS
-
-  private getAgencias() {
-    return this.http.get(URL + '/assets/launchagencies.json').pipe(
-      map((res: any) => {
-        return res.agencies;
-      })
-    );
-  }
-
-  private getTipos() {
-    return this.http.get(URL + '/assets/launchmissions.json').pipe(
-      map((res: any) => {
-        return res.types;
-      })
-    );
-  }
-
   private getEstados() {
     return this.http.get(URL + '/assets/launchstatus.json').pipe(
       map((res: any) => {

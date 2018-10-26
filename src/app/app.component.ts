@@ -4,10 +4,6 @@ import { UpdateAvailableEvent } from '@angular/service-worker/src/low_level';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { GlobalState } from './reducers';
-import { map } from 'rxjs/operators';
-import { ValoresState } from './reducers/valor.reducer';
-import { ListaLanzamientosState } from './reducers/lanzamientos/lanzamientos.reducer';
-import { LoadNumLanzamientos } from './reducers/valor.actions';
 import { LoadLanzamientos } from './reducers/valor.actions';
 
 @Component({
@@ -46,7 +42,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // DUDA: Quiza llevar 
+  // TODO: Llevar esto a un componente header
   observeLaunches = () => {
     this.valores$ = this.store.select('valores');
   }
