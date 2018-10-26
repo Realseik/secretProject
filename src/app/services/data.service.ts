@@ -31,7 +31,14 @@ export class DataService {
             return this.filtrarLanzamiento(launch, Number(valor));
           })
           .map(lanzamiento => {
-            return lanzamiento;
+            return {
+              name: lanzamiento.name,
+              id: lanzamiento.id,
+              fecha: lanzamiento.isostart,
+              imagen: lanzamiento.rocket.imageURL ? lanzamiento.rocket.imageURL : undefined,
+              failreason: lanzamiento.failreason ? lanzamiento.failreason : undefined,
+              mapURL: lanzamiento.location.pads[0].mapURL
+            };
           })
       )
     );
@@ -49,7 +56,7 @@ export class DataService {
               name: lanzamiento.name,
               id: lanzamiento.id,
               fecha: lanzamiento.isostart,
-              imagen: lanzamiento.rocket.imageURL ? lanzamiento.rocket.imageURL  : undefined,
+              imagen: lanzamiento.rocket.imageURL ? lanzamiento.rocket.imageURL : undefined,
               failreason: lanzamiento.failreason,
               mapURL: lanzamiento.location.pads[0].mapURL
             };
@@ -66,7 +73,7 @@ export class DataService {
               name: lanzamiento.name,
               id: lanzamiento.id,
               fecha: lanzamiento.isostart,
-              imagen: lanzamiento.rocket.imageURL ? lanzamiento.rocket.imageURL  : undefined,
+              imagen: lanzamiento.rocket.imageURL ? lanzamiento.rocket.imageURL : undefined,
               failreason: lanzamiento.failreason,
               mapURL: lanzamiento.location.pads[0].mapURL
             };

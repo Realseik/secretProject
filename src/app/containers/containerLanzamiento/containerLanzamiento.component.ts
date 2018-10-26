@@ -18,6 +18,7 @@ import { LoadNombreLanzamiento } from '../../reducers/valor.actions';
 export class ContainerLanzamientosComponent implements OnInit {
 
   public lanzamiento$: Observable<any>;
+  private lanzamientoSeleccionado: number;
   private id: string;
 
   constructor(
@@ -39,7 +40,10 @@ export class ContainerLanzamientosComponent implements OnInit {
     this.lanzamiento$ = this.store.select('lanzamiento').pipe(
       map((state: LanzamientoState) => {
         if (state) {
-         // this.store.dispatch(new LoadNombreLanzamiento(state.lanzamiento.name));
+          if (state.lanzamiento.id !== this.lanzamientoSeleccionado) {
+            this.lanzamientoSeleccionado = state.lanzamiento.id;
+            this.store.dispatch(new LoadNombreLanzamiento(state.lanzamiento.name));
+          }
           return state.lanzamiento;
         }
       })

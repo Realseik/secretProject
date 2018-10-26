@@ -33,12 +33,14 @@ import { HeaderComponent } from './shared/header/header.component';
     HttpClientModule,
     RouterModule.forRoot([]),
     StoreModule.forRoot(reducers, { metaReducers }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([ValorEffects, LanzamientosEffects]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
+    EffectsModule.forRoot([ValorEffects, LanzamientosEffects]),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
-    })
+    }),
+    !environment.production ?
+      StoreDevtoolsModule.instrument()
+      : []
   ],
   exports: [RouterModule],
   providers: [DataService],

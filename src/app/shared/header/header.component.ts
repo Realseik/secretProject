@@ -4,6 +4,8 @@ import { UpdateAvailableEvent } from '@angular/service-worker/src/low_level';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { GlobalState } from 'src/app/reducers';
+import { LoadLanzamientos } from '../../reducers/valor.actions';
+import { map } from '../../../../node_modules/rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -14,16 +16,21 @@ export class HeaderComponent implements OnInit {
 
   public version = '4';
   public title = 'Proyecto final RealseiK';
-
-  private valores$: Observable<any>;
+  private numLanzamientos: number;
+  public valores$: Observable<any>;
 
   constructor(
     private swUpdate: SwUpdate,
     private store: Store<GlobalState>) { }
 
   ngOnInit() {
+    this.loadData();
     this.observeForUpdates();
     this.observeLaunches();
+  }
+
+  loadData = () => {
+    this.store.dispatch(new LoadLanzamientos());
   }
 
   observeForUpdates() {
@@ -36,8 +43,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  // TODO: Llevar esto a un componente header
   observeLaunches = () => {
     this.valores$ = this.store.select('valores');
   }
+
 }

@@ -29,7 +29,11 @@ export class ValorEffects {
       mergeMap((action: ValorActions) =>
         this.data
           .cargarLanzamientos()
-          .pipe(map(criterios => new SaveLanzamientos(criterios)))
+          .pipe(
+            map((criterios) => {
+              return new SaveLanzamientos(criterios);
+            }
+            ))
       )
     );
 

@@ -23,15 +23,13 @@ export function reducer(state = initialState, action: ValorActions): ValoresStat
     case ValorActionTypes.LoadValores:
       return { ...state };
     case ValorActionTypes.SaveLanzamientos:
-      return { ...state, numeroLanzamientos: state.lanzamientos.length, lanzamientos: action.payload };
+      return { ...state, numeroLanzamientos: action.payload.length, lanzamientos: action.payload };
     case ValorActionTypes.Saved:
       return { ...state, valores: action.payload };
     case ValorActionTypes.NotSaved:
       return { ...state, message: action.payload };
     case ValorActionTypes.LoadNumLanzamientosSeleccionados:
       return { ...state, numeroLanzamientosSeleccionados: action.payload };
-    case ValorActionTypes.LoadNumLanzamientos:
-      return { ...state, numeroLanzamientos: action.payload };
     case ValorActionTypes.LoadNombreLanzamiento:
       return { ...state, nombreLanzamiento: action.payload };
     default:

@@ -7,6 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { LanzamientoEffects } from '../reducers/lanzamiento/lanzamiento.effects';
 import { reducer } from '../reducers/valor.reducer';
+import { DateFormatPipe } from '../pipes/date.pipe';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { reducer } from '../reducers/valor.reducer';
         StoreModule.forFeature('lanzamientos', { lanzamiento: reducer }),
         EffectsModule.forFeature([LanzamientoEffects]),
     ],
-    declarations: [LanzamientoComponent, ContainerLanzamientosComponent]
+    declarations: [DateFormatPipe, LanzamientoComponent, ContainerLanzamientosComponent]
 })
 export class LanzamientoModule { }
 

@@ -1,6 +1,7 @@
 <div *ngIf="lanzamiento">
   <h1>
     {{lanzamiento.name}}</h1>
-  <h2>{{lanzamiento.windowstart}}</h2>
+  <h2>Fecha de lanzamiento: {{lanzamiento.fecha | date: 'dd/MM/yyyy'}}</h2>
+  <h4 style="color:red" *ngIf="lanzamiento.failreason !== undefined">Motivo del fallo: {{lanzamiento.failreason}}</h4>
   <div class="imgContainer" [ngStyle]="{'background-image':'url(' + lanzamiento.imagen + ')'}"> </div>
-</div> 
+</div>

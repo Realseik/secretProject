@@ -8,12 +8,12 @@
     <h4>Versión v.{{version}}.0</h4>
 
     <!-- Es un poco cutre, pero a efectos practicos... -->
-    <h5 *ngIf="(valores$ | async).numeroLanzamientos > 0 && (valores$ | async).numeroLanzamientosSeleccionados == 0">Numero de lanzamientos: {{(valores$ | async).numeroLanzamientos}}, Seleccionados: {{(valores$ | async).numeroLanzamientosSeleccionados}}
+    <h5 *ngIf="(valores$ | async).numeroLanzamientos > 0 && (valores$ | async).numeroLanzamientosSeleccionados == 0">Numero de lanzamientos: {{(valores$ | async).numeroLanzamientos}}, Filtrados: {{(valores$ | async).numeroLanzamientosSeleccionados}}
     </h5>
-    <h5 *ngIf="(valores$ | async).numeroLanzamientosSeleccionados > 0">Numero de lanzamientos: {{(valores$ | async).numeroLanzamientos}}, Seleccionados: {{(valores$ | async).numeroLanzamientosSeleccionados}}
+    <h5 *ngIf="(valores$ | async).numeroLanzamientosSeleccionados > 0">Numero de lanzamientos: {{(valores$ | async).numeroLanzamientos}}, Filtrados: {{(valores$ | async).numeroLanzamientosSeleccionados}}
     </h5>
 
     <h6 *ngIf="(valores$ | async).nombreLanzamiento !== ''">Lanzamiento seleccionado : {{(valores$ | async).nombreLanzamiento}}</h6>
 
-    <p>{{(valores$ | async | json)}}</p>
+    <!-- <p>{{(valores$ | async | json)}}</p> -->
 </div>
