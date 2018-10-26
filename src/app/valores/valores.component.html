@@ -1,3 +1,3 @@
 <div class="center">
-  <input type="button" *ngFor="let valor of valoresCriterio" [value]="valor.name" (click)="seleccionado(valor.id)" routerLink="/listaLanzamientos">
+  <button type="button" class="button" *ngFor="let valor of valoresCriterio" (click)="seleccionado(valor.id)" routerLink="/listaLanzamientos">{{valor.name}}</button>
 </div>
