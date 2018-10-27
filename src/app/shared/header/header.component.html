@@ -13,7 +13,6 @@
     <h5 *ngIf="(valores$ | async).numeroLanzamientosSeleccionados > 0">Numero de lanzamientos: {{(valores$ | async).numeroLanzamientos}}, Filtrados: {{(valores$ | async).numeroLanzamientosSeleccionados}}
     </h5>
 
-    <h6 *ngIf="(valores$ | async).nombreLanzamiento !== ''">Lanzamiento seleccionado : {{(valores$ | async).nombreLanzamiento}}</h6>
+    <h6 *ngIf="(valores$ | async).nombreLanzamiento !== ''">Ultimo lanzamiento seleccionado : {{(valores$ | async).nombreLanzamiento}}</h6>
 
-    <!-- <p>{{(valores$ | async | json)}}</p> -->
 </div>

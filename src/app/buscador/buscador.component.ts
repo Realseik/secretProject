@@ -14,25 +14,14 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BuscadorComponent implements OnInit {
-  public aux: any[];
 
-  // @Input()
-  // public criterios = [];
-  @Input()
-  public valoresCriterio = [];
+  @Input() public valoresCriterio = [];
 
-  // @Output()
-  // criterioSeleccionado = new EventEmitter<string>();
-  @Output()
-  valorSeleccionado = new EventEmitter<string>();
+  @Output() public valorSeleccionado = new EventEmitter<string>();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
-
-  // onCriterioSeleccionado(evt) {
-  //   this.criterioSeleccionado.emit(evt);
-  // }
+  ngOnInit() { }
 
   onValorSeleccionado(evt) {
     this.valorSeleccionado.emit(evt);

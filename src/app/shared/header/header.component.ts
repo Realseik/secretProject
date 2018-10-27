@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { UpdateAvailableEvent } from '@angular/service-worker/src/low_level';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { GlobalState } from 'src/app/reducers';
 import { LoadLanzamientos } from '../../reducers/valor.actions';
-import { map } from '../../../../node_modules/rxjs/operators';
 
 @Component({
   selector: 'app-header',
