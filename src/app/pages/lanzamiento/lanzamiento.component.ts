@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DateFormatPipe } from '../pipes/date.pipe';
+import { DateFormatPipe } from '../../pipes/date.pipe';
 
 @Component({
   selector: 'app-lanzamiento',

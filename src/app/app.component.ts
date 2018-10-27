@@ -1,10 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { SwUpdate } from '@angular/service-worker';
-import { UpdateAvailableEvent } from '@angular/service-worker/src/low_level';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { GlobalState } from './reducers';
-import { LoadLanzamientos } from './reducers/valor.actions';
 
 @Component({
   selector: 'app-root',

@@ -1,12 +1,10 @@
-import { LanzamientosSaved, SaveOrden } from '../../reducers/lanzamientos/lanzamientos.actions';
-
+import { LanzamientosSaved } from '../../reducers/lanzamientos/lanzamientos.actions';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { GlobalState } from '../../reducers';
 import { LoadValores, LoadNumLanzamientosSeleccionados } from '../../reducers/valor.actions';
-import { ValoresState } from '../../reducers/valor.reducer';
 import { LoadLanzamientos } from '../../reducers/lanzamientos/lanzamientos.actions';
 import { ListaLanzamientosState } from '../../reducers/lanzamientos/lanzamientos.reducer';
 
